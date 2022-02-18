@@ -23,7 +23,7 @@ app.post('/',(req,res)=>{
                 email_address:email,
                 status:"subscribed",
                 merge_fields:{
-                    FNAAME:fn,
+                    FNAME:fn,
                     LNAME:ln
                 }
             }
@@ -52,7 +52,11 @@ app.post('/',(req,res)=>{
     request.end();
 })
 
-app.listen(process.env.PORT || 80);
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 80;
+}
+app.listen(port);
 
 
 // api key 58fea81f80bc180584dfd5f6dcf38201-us14
